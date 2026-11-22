@@ -47,10 +47,10 @@ body {
   align-items: center;
   gap: 8px;
   padding: 7px 10px;
-  border: 1px solid #bde1da;
+  border: 1px solid #ead8aa;
   border-radius: 999px;
-  color: var(--accent-dark);
-  background: #effaf7;
+  color: #7a5516;
+  background: #fff9ea;
   font-size: 0.78rem;
   font-weight: 700;
 }
@@ -59,8 +59,19 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #16a085;
-  box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.12);
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(198, 138, 32, 0.12);
+}
+
+.status-badge.status-error {
+  border-color: #f2b8b5;
+  color: #b42318;
+  background: #fff5f4;
+}
+
+.status-error .status-dot {
+  background: #b42318;
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.1);
 }
 
 .panel {
@@ -166,6 +177,39 @@ body {
   text-align: center;
 }
 
+.student-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.student-list-header {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-secondary-action {
+  min-height: 34px;
+  padding: 5px 9px;
+  border: 1px solid #cfd6df;
+  color: #344054;
+  background: #fff;
+  font-size: 0.78rem;
+}
+
+.btn-secondary-action:hover,
+.btn-secondary-action:focus {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+  background: #f3faf8;
+}
+
+.btn-secondary-action:disabled {
+  opacity: 0.55;
+}
+
 .students-list {
   display: grid;
   gap: 8px;
@@ -175,7 +219,7 @@ body {
 
 .student-row {
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) auto;
+  grid-template-columns: 32px minmax(0, 1fr) auto 38px;
   gap: 10px;
   align-items: center;
   padding: 10px 12px;
@@ -206,6 +250,39 @@ body {
   color: var(--muted);
   font-size: 0.84rem;
   white-space: nowrap;
+}
+
+.btn-delete,
+.btn-clear {
+  min-height: 38px;
+  border: 1px solid #f2b8b5;
+  color: #b42318;
+  background: #fff5f4;
+}
+
+.btn-delete {
+  width: 38px;
+  padding: 0;
+  border-radius: 6px;
+}
+
+.btn-clear {
+  min-height: 34px;
+  padding: 5px 9px;
+  font-size: 0.78rem;
+}
+
+.btn-delete:hover,
+.btn-delete:focus,
+.btn-clear:hover,
+.btn-clear:focus {
+  border-color: #b42318;
+  color: #912018;
+  background: #feeceb;
+}
+
+.btn-clear:disabled {
+  opacity: 0.55;
 }
 
 .empty-state {
@@ -252,11 +329,12 @@ body {
 .mercy-list .list-group-item { border-color: var(--line); }
 
 @media (max-width: 575.98px) {
-  .topbar { align-items: flex-start; }
-  .status-badge { display: none; }
+  .topbar { align-items: flex-start; flex-direction: column; gap: 10px; }
   .container { padding-right: 12px; padding-left: 12px; }
   .panel { padding: 18px; }
   .report-grid { grid-template-columns: 1fr; }
-  .student-row { grid-template-columns: 28px minmax(0, 1fr); }
+  .student-actions { justify-content: flex-start; }
+  .student-row { grid-template-columns: 28px minmax(0, 1fr) 38px; }
   .student-average { grid-column: 2; white-space: normal; }
+  .btn-delete { grid-row: 1 / span 2; grid-column: 3; }
 }

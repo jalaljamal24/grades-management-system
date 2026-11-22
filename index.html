@@ -15,9 +15,9 @@
         <p class="eyebrow mb-1">الإدارة الأكاديمية</p>
         <h1 class="h3 mb-0">نظام إدارة النتائج</h1>
       </div>
-      <div class="status-badge">
+      <div class="status-badge" title="تُحفظ البيانات في هذا المتصفح فقط">
         <span class="status-dot"></span>
-        متصل بالنظام
+        <span id="storageStatus">الحفظ على هذا الجهاز</span>
       </div>
     </header>
 
@@ -79,12 +79,27 @@
 
       <section class="col-lg-7">
         <div class="panel mb-4">
-          <div class="d-flex align-items-center justify-content-between mb-3">
+          <div class="student-list-header d-flex align-items-center justify-content-between mb-3">
             <div class="panel-heading compact">
               <span class="section-icon"><i class="bi bi-people"></i></span>
               <h2 class="h5 mb-0">قائمة الطلاب</h2>
             </div>
-            <span id="studentCount" class="count-badge">0 طلاب</span>
+            <div class="student-actions">
+              <button type="button" id="exportBackupBtn" class="btn btn-secondary-action" disabled>
+                <i class="bi bi-download"></i>
+                تصدير نسخة
+              </button>
+              <button type="button" id="importBackupBtn" class="btn btn-secondary-action">
+                <i class="bi bi-upload"></i>
+                استيراد نسخة
+              </button>
+              <input type="file" id="backupFileInput" accept=".json,application/json" hidden>
+              <button type="button" id="clearStudentsBtn" class="btn btn-clear" disabled>
+                <i class="bi bi-trash3"></i>
+                مسح الكل
+              </button>
+              <span id="studentCount" class="count-badge">0 طلاب</span>
+            </div>
           </div>
           <div id="studentsList" class="students-list">
             <p class="empty-state mb-0">لا يوجد طلاب مضافون حتى الآن.</p>
@@ -104,6 +119,6 @@
     </div>
   </main>
 
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
